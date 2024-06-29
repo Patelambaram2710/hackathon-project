@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plan Cart</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #72EDF2 10%, #5151E5 100%);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 900px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin: 0 0 20px;
+            color: #5151E5;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .plan-number-input {
+            display: flex;
+            justify-content: center;
+        }
+
+        .plan-number-input input,
+        .plan-number-input button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 0 5px;
+            outline: none;
+        }
+
+        .plan-number-input input {
+            flex: 1;
+            max-width: 150px;
+        }
+
+        .plan-number-input button {
+            background-color: #5151E5;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .plan-number-input button:hover {
+            background-color: #3b3bb3;
+        }
+
+        .sort-controls, .diet-plan-category {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .diet-plan {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+            padding-bottom: 10px;
+        }
+
+        .diet-plan div {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .diet-plan div:hover {
+            transform: translateY(-5px);
+        }
+
+        .diet-plan h2 {
+            margin: 0 0 10px;
+            font-size: 22px;
+            color: #5151E5;
+        }
+
+        .diet-plan p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .add-to-diet-btn {
+            display: inline-block;
+            background-color: rgb(24, 83, 200);
+            color: #fff;
+            font-size: 1rem;
+            margin-top: 10px;
+            padding: 20px 80px;
+            border-radius: 10px;
+            border: 0;
+            cursor: pointer;
+            transition: all 0.7s;
+            bottom: 0px;
+           
+        }
+
+
+        .add-to-diet-btn:hover {
+            background-color: rgb(7, 36, 123);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 600px) {
+            .diet-plan {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Diet Plan</h1>
+        </div>
+        <div class="controls">
+            <div class="plan-number-input">
+                <input type="number" id="plan-number" placeholder="Enter plan number" min="1">
+                <button onclick="fetchDietPlan()">Get Diet Plan</button>
+            </div>
+            <div class="sort-controls">
+                <select id="sort-options" class="sort-select" onchange="sortDietPlans()">
+                    <option value="protein">Sort by Protein</option>
+                    <option value="fat">Sort by Fat</option>
+                    <option value="carbs">Sort by Carbs</option>
+                    <option value="calories">Sort by Calories</option>
+                </select>
+            </div>
+            <div class="diet-plan-category">
+                <select id="diet-plan-options" class="sort-select" onchange="filterDietPlans()">
+                    <option value="all">All Diet Plans</option>
+                    <option value="muscle-gain">Muscle Gain</option>
+                    <option value="endurance">Endurance</option>
+                    <option value="weight-loss">Weight Loss</option>
+                    <option value="vegan">Vegan</option>
+                </select>
+            </div>
+        </div>
+        <div id="diet-plan" class="diet-plan">
+            <!-- Placeholder diet plan content -->
+            <div>
+                <h2>Diet Plan 1</h2>
+                <p><strong>8 AM:</strong> Scrambled eggs</p>
+                <p><strong>10:30 AM:</strong> Protein shake</p>
+                <p><strong>12:30 PM:</strong> Chicken breast</p>
+                <p><strong>4 PM:</strong> Greek yogurt</p>
+                <p><strong>6:30 PM:</strong> Grilled salmon</p>
+                <p><strong>8:30 PM:</strong> Cottage cheese</p>
+                <p><strong>Diet Plan:</strong> Muscle Gain</p>
+                <p><strong>Type:</strong> Non-Veg</p>
+                <p><strong>Total Daily Calories:</strong> 2500</p>
+                <p><strong>Total Daily Protein:</strong> 200g</p>
+                <p><strong>Total Daily Cholesterol:</strong> 300mg</p>
+                <p><strong>Total Daily Sugar:</strong> 40g</p>
+                <p><strong>Total Daily Carbs:</strong> 150g</p>
+                <button class="add-to-diet-btn">Add to Diet</button>
+            </div>
+        </div>
+    </div>
+
+   
+</body>
+
+</html>

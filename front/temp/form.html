@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <style>
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input, select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.radio-group label {
+    margin-right: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 15px;
+    }
+
+    input, select, button {
+        width: calc(100% - 30px);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="userForm" method="post" action="/bodyData/create_bodyData">
+            <h2>Personal Information</h2>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required>
+            
+            <label for="height">Height (cm):</label>
+            <input type="number" id="height" name="height" required>
+            
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select...</option>
+                <option value="true">Male</option>
+                <option value="false">Female</option>
+                
+            </select>
+            
+            <label>Diet:</label>
+            <div class="radio-group">
+                <input type="radio" id="veg" name="diet" value="veg" required>
+                <label for="veg">Vegetarian</label>
+                
+                <input type="radio" id="nonveg" name="diet" value="nonveg" required>
+                <label for="nonveg">Non-Vegetarian</label>
+            </div>
+            
+            <input type="submit">
+        </form>
+    </div>
+</body>
+</html>

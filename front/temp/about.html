@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Diet Recommendation</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: black;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .hero {
+            background-image: url('hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+
+        .hero button {
+            background-color: #fff;
+            border: none;
+            color: #4CAF50;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .about {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .about h3 {
+            color: #333;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .team-member {
+            text-align: center;
+            margin: 1rem;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .team-member h4 {
+            margin-top: 0.5rem;
+            color: #333;
+        }
+
+        footer {
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Diet Recommendation</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero " style="color:black">
+            <div class="hero-content">
+                <h2>About Us</h2>
+                <p>Learn more about our mission, vision, and team behind Diet Recommendation.</p>
+                <button id="learn-more-btn">Learn More</button>
+            </div>
+        </section>
+
+        <section class="about" id="about-section">
+            <h3>Our Mission</h3>
+            <p>At Diet Recommendation, our mission is to provide personalized diet plans to help you achieve your health
+                goals. We believe in the power of nutrition and are committed to making healthy eating accessible and
+                enjoyable for everyone.</p>
+
+            <h3>Our Vision</h3>
+            <p>We envision a world where everyone has access to the knowledge and tools they need to lead a healthier,
+                happier life. Our goal is to empower individuals to make informed dietary choices through our
+                comprehensive and easy-to-use platform.</p>
+
+            <h3>Meet the Team</h3>
+            <div class="team">
+                <div class="team-member">
+
+                    <h4>Ambaram patel</h4>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+
+                    <h4>Tejas patel</h4>
+                    <p>Chief Nutritionist</p>
+                </div>
+                <div class="team-member">
+
+                    <h4>Urvesh kathiriya</h4>
+                    <p>Marketing Director</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Diet Recommendation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const learnMoreBtn = document.getElementById("learn-more-btn");
+            const aboutSection = document.getElementById("about-section");
+
+            learnMoreBtn.addEventListener("click", function () {
+                aboutSection.scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+    </script>
+</body>
+
+</html>

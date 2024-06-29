@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Diet Recommendation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color:gray;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            overflow: hidden;
+        }
+
+        .profile-header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .user-name {
+            margin: 10px 0 5px;
+        }
+
+        .user-email {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .profile-content {
+            padding: 20px;
+        }
+
+        .user-details,
+        .diet-plan {
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #4CAF50;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .update-button-container {
+            text-align: center;
+        }
+
+        .update-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .update-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+
+            <h1 class="user-name">John Doe</h1>
+            <p class="user-email" id="user-email">john.doe@example.com</p>
+        </div>
+        <div class="profile-content">
+            <div class="user-details">
+                <h2>Personal Details</h2>
+                <p><strong>Age:</strong> 30</p>
+                <p><strong>Height:</strong> 5'10"</p>
+                <p><strong>Weight:</strong> 75 kg</p>
+                <p><strong>Gender:</strong> Weight Loss</p>
+            </div>
+            <div class="diet-plan">
+                <h2>Diet Plan</h2>
+                <ul>
+                    <li>Breakfast: Oatmeal with fruits</li>
+                    <li>Lunch: Grilled chicken salad</li>
+                    <li>Snack: Greek yogurt</li>
+                    <li>Dinner: Baked salmon with vegetables</li>
+                </ul>
+            </div>
+            <div class="update-button-container">
+                <p><a href="form.html" class="update-button btn btn-primary">Update Profile</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function getCookie(name) {
+            let matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+            ));
+            return matches ? decodeURIComponent(matches[1]) : undefined;
+        }
+
+        function populateProfile() {
+            document.getElementById('user-name').textContent = getCookie('user').name || 'John Doe';
+            document.getElementById('user-email').textContent = getCookie('user').email || 'john.doe@example.com';
+            document.getElementById('user-age').textContent = getCookie('user').age || '30';
+            document.getElementById('user-height').textContent = getCookie('user').height || '5\'10"';
+            document.getElementById('user-weight').textContent = getCookie('user').weight || '75 kg';
+            document.getElementById('user-gender').textContent = getCookie('user').gender || 'Weight Loss';
+
+            const dietPlan = getCookie('dietPlan');
+            if (dietPlan) {
+                const dietPlanArray = dietPlan.split(',');
+                const dietPlanList = document.getElementById('diet-plan');
+                dietPlanList.innerHTML = '';
+                dietPlanArray.forEach(item => {
+                    const li = document.createElement('li');
+                    li.textContent = item;
+                    dietPlanList.appendChild(li);
+                });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', populateProfile);
+    </script>
+
+</body>
+
+</html>
